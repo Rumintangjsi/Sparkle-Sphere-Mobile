@@ -8,7 +8,7 @@
 # Tugas 7
 
 ## 1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?
-* **States Widget** : Stateless widget adalah widget yang tidak memerlukan state mutable. Ini berarti bahwa stateless widget tidak menyimpan data yang akan berubah. Contohnya termasuk ikon, teks, dan tombol yang tidak bergantung pada keadaan tertentu.
+* **Stateless Widget** : Stateless widget adalah widget yang tidak memerlukan state mutable. Ini berarti bahwa stateless widget tidak menyimpan data yang akan berubah. Contohnya termasuk ikon, teks, dan tombol yang tidak bergantung pada keadaan tertentu.
 * **Stateful Widget** : Stateful widget adalah widget yang mengelola state yang mungkin berubah selama masa hidup widget. Ini bisa sesuatu seperti data yang diambil dari internet, atau status tombol yang bisa ditekan.
 
 | Feature | Stateless Widget | Stateful Widget |
