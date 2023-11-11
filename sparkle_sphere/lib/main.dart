@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sparkle_sphere/menu.dart';
+import 'package:sparkle_sphere/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
