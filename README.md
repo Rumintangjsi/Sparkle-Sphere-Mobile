@@ -153,8 +153,8 @@ Setelah selesai dengan _code_, saya menjalankan aplikasi dengan `flutter run` di
 Navigator.push() dan Navigator.pushReplacement() adalah dua metode yang digunakan dalam Flutter untuk navigasi antar halaman. Berikut adalah perbedaan utama antara keduanya:
 
 * **Navigator.push():** <br>
-  Digunakan untuk menambahkan rute baru ke tumpukan navigator, yang memungkinkan Anda kembali ke rute sebelumnya.
-  Hal ini berguna ketika Anda ingin mempertahankan state rute sebelumnya dan mungkin ingin kembali ke sana, seperti dalam kasus navigasi ke detail sebuah item dari daftar. <br><br>
+  Digunakan untuk menambahkan rute baru ke tumpukan navigator, yang memungkinkan Kita kembali ke rute sebelumnya.
+  Hal ini berguna ketika Kita ingin mempertahankan state rute sebelumnya dan mungkin ingin kembali ke sana, seperti dalam kasus navigasi ke detail sebuah item dari daftar. <br><br>
   Contoh Penggunaan Navigator.push(): <br>
   ```
   // Dalam Flutter, navigasi ke halaman detail.
@@ -166,8 +166,8 @@ Navigator.push() dan Navigator.pushReplacement() adalah dua metode yang digunaka
   Dalam contoh tersebut, ketika user menavigasi ke DetailPage, halaman sebelumnya tetap ada di tumpukan. Pengguna dapat kembali ke halaman sebelumnya dengan menggunakan tombol back.<br><br>
 
 * **Navigator.pushReplacement():** <br>
-  Menggantikan rute saat ini dengan rute baru di tumpukan navigator, sehingga Anda tidak dapat kembali ke rute sebelumnya.
-  Ini berguna ketika Anda tidak ingin pengguna kembali ke halaman sebelumnya, seperti dalam kasus navigasi dari layar splash ke layar home atau setelah proses login selesai.<br><br>
+  Menggantikan rute saat ini dengan rute baru di tumpukan navigator, sehingga Kita tidak dapat kembali ke rute sebelumnya.
+  Ini berguna ketika Kita tidak ingin pengguna kembali ke halaman sebelumnya, seperti dalam kasus navigasi dari layar splash ke layar home atau setelah proses login selesai.<br><br>
   Contoh Penggunaan Navigator.pushReplacement():<br>
   ```
   // Dalam Flutter, navigasi ke Home Page setelah login dan menghapus stack sebelumnya.
@@ -183,7 +183,7 @@ Ringkasnya, Navigator.push() menambahkan halaman baru ke tumpukan, memungkinkan 
 ## 2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!
 Dalam Flutter, widget tata letak digunakan untuk mengatur posisi dan ukuran widget anak lainnya. Berikut adalah penjelasan masing-masing widget tata letak yang umum digunakan di Flutter dan konteks penggunaannya:<br>
 
-* Container: Widget yang serba guna, dapat digunakan untuk mendekorasi, memberi ukuran, padding, margin, dan melakukan transformasi terhadap widget anaknya. Gunakan Container ketika Anda ingin menambahkan style khusus atau batasan pada widget tunggal.
+* Container: Widget yang serba guna, dapat digunakan untuk mendekorasi, memberi ukuran, padding, margin, dan melakukan transformasi terhadap widget anaknya. Gunakan Container ketika Kita ingin menambahkan style khusus atau batasan pada widget tunggal.
 
 * Column: Mirip dengan Row, tetapi menyusun widget anaknya secara vertikal. Gunakan Column untuk menyusun widget seperti daftar atau formulir yang memanjang ke bawah.
 
@@ -213,12 +213,12 @@ Penerapan clean architecture dalam pengembangan aplikasi Flutter melibatkan pemi
 
 1. **Pembagian Lapisan Aplikasi**: 
    - **Presentation Layer**: Mengandung widget dan logika tampilan. Layer ini bertanggung jawab untuk menampilkan data ke pengguna dan menerima input dari pengguna. Ini sering menggunakan model seperti BLoC (Business Logic Component) atau ViewModel untuk memisahkan logika bisnis dari UI.
-   - **Domain Layer**: Inti dari aplikasi Anda. Ini berisi entitas (model data dasar), kasus penggunaan, dan abstraksi dari repositori. Layer ini seharusnya tidak bergantung pada layer lain dan mewakili aturan bisnis aplikasi.
+   - **Domain Layer**: Inti dari aplikasi Kita. Ini berisi entitas (model data dasar), kasus penggunaan, dan abstraksi dari repositori. Layer ini seharusnya tidak bergantung pada layer lain dan mewakili aturan bisnis aplikasi.
    - **Data Layer**: Bertanggung jawab untuk mengakses data dari berbagai sumber (API, database lokal, dll). Ini termasuk repositori, data source (remote dan local), dan model data yang lebih kompleks yang biasanya mencakup logika serialisasi/deserialisasi.
 
 2. **Dependency Inversion**: Modul tingkat atas tidak boleh bergantung pada modul tingkat bawah. Sebagai gantinya, kedua modul tersebut harus bergantung pada abstraksi. Dalam praktiknya, ini sering berarti bahwa layer data dan domain mendefinisikan interface atau abstraksi yang diimplementasikan di layer data tetapi digunakan di domain.
 
-3. **Penggunaan Kasus Penggunaan**: Di domain layer, Anda mendefinisikan kasus penggunaan yang menggambarkan aksi yang dapat dilakukan dalam aplikasi Anda. Setiap kasus penggunaan mewakili satu tindakan spesifik dan interaksi dengan repositori.
+3. **Penggunaan Kasus Penggunaan**: Di domain layer, Kita mendefinisikan kasus penggunaan yang menggambarkan aksi yang dapat dilakukan dalam aplikasi Kita. Setiap kasus penggunaan mewakili satu tindakan spesifik dan interaksi dengan repositori.
 
 4. **Prinsip Single Responsibility**: Setiap kelas harus memiliki tanggung jawab tunggal dan alasan untuk berubah. Ini membantu dalam memelihara dan menguji kode.
 
@@ -376,4 +376,400 @@ Mengintegrasikan drawer menu ke dalam aplikasi Flutter saya akan memudahkan navi
     ```
 
 Dengan mengikuti langkah-langkah ini, saya berhasil menambahkan drawer menu untuk navigasi, membuat halaman form untuk input data, dan menambahkan navigasi pada tombol di aplikasi Flutter saya.
+</details>
+
+<details>
+<summary> Tugas 9 PBP </summary>
+
+# Tugas 9
+
+## 1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?
+
+Ya, bisa dilakukan dengan menggunakan `Map<String, dynamic>` untuk menangani data JSON secara langsung. Pengambilan data JSON tanpa model memberika fleksibilitas karena developer tidak perlu mendefinisikan struktur data terlebih dahulu. Hal ini berguna untuk prototyping cepat atau ketika berinteraksi dengan API yang sering berubah. Developer juga tidak perlu menulis kode tambahan untuk serialisasi dan deserialisasi data, yang bisa menghemat waktu pengembangan.
+
+Akan tetapi, jika dibandingkan dengan pembuatan model, membuat model kelas untuk JSON lebih membantu dalam menjaga kode menjadi lebih terorganisir dan mudah dibaca. Selain itu, pembuatan model membuat kode lebih mudah diperbarui. Oleh karena itu, penggunaan tanpa model lebih cocok untuk skenario ketika struktur data tidak tetap.
+
+
+## 2. Jelaskan fungsi dari `CookieRequest` dan jelaskan mengapa instance `CookieRequest` perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
+
+Fungsi dari `CookieRequest` adalah untuk menyimpan dan mengelola data sesi pengguna, seperti token autentikasi atau preferensi pengguna. Hal ini sangat penting dalam aplikasi yang membutuhkan pemeliharaan sesi pengguna, seperti penggunaan fitur login yang ada dalam aplikasi Sparkle Sphere ini.
+
+Alasan mengapa sebuah instance `CookieRequest` perlu dibagikan ke semua komponen dalam aplikasi adalah untuk menjaga konsistensi sesi pengguna di seluruh aplikasi. Ini memastikan bahwa setiap komponen aplikasi dapat mengakses dan memanfaatkan data sesi yang sama. Misalnya, jika pengguna telah masuk (login), cookie yang memuat token autentikasi harus dapat diakses oleh semua komponen yang memerlukan verifikasi autentikasi, sehingga pengguna tidak perlu masuk berulang kali saat berpindah antar fitur aplikasi.
+
+## 3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.
+Mekanisme pengambilan data dari JSON untuk ditampilkan pada aplikasi Flutter melibatkan beberapa langkah penting. Pertama, kita perlu mendefinisikan sebuah model dalam Flutter yang sesuai dengan struktur data JSON yang diharapkan. Model ini adalah kelas Dart dengan properti yang sesuai dengan kunci dalam data JSON. Di dalam kelas ini, kita juga mengimplementasikan metode fromJson dan toJson untuk mengonversi data antara format JSON dan objek Dart.
+
+Setelah model didefinisikan, langkah selanjutnya adalah mengambil data dari web service menggunakan paket http di Flutter. Kita mengirim permintaan HTTP ke endpoint web service dan menerima respons. Respons ini biasanya dalam format JSON, yang kemudian kita parse menggunakan metode jsonDecode dari Dart untuk mengubahnya menjadi objek Dart (Map atau List).
+
+Selanjutnya, kita menggunakan metode fromJson dari model yang telah kita buat untuk mengubah data JSON yang telah diparse menjadi objek model Dart. Jika data JSON adalah array, kita akan mengiterasi setiap item dan mengonversi setiap item menjadi instance model.
+
+Untuk menampilkan data di Flutter, kita menggunakan berbagai widget yang disediakan oleh Flutter. Dalam tugas ini, saya menggunakan ListView.builder untuk menampilkan daftar item
+
+## 4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
+Mekanisme autentikasi dari input data akun di Flutter ke proses autentikasi di Django dan kemudian menampilkan menu di Flutter berlangsung dalam beberapa tahap terintegrasi. Pertama, di sisi Flutter, pengguna memasukkan detail akun mereka, seperti username dan password, melalui antarmuka pengguna. Flutter kemudian mengirimkan data ini ke server Django menggunakan permintaan HTTP dengan metode POST dan data dikirim dalam format JSON. Setelah menerima data, Django memprosesnya untuk autentikasi. Proses ini melibatkan pengecekan ke database untuk memastikan bahwa detail akun yang diberikan valid dan sesuai dengan yang ada di database. Jika berhasil, Django akan menghasilkan token yang dikirim kembali ke Flutter sebagai bagian dari respons autentikasi.
+
+Di sisi Flutter, aplikasi menanggapi respons dari Django. Jika autentikasi berhasil, aplikasi menyimpan token untuk sesi pengguna dan mengarahkan mereka ke halaman utama atau dashboard aplikasi. Ini memungkinkan pengguna mengakses fitur-fitur yang tersedia sesuai dengan hak akses mereka. Sebaliknya, jika autentikasi gagal, Flutter akan menampilkan pesan kesalahan dan meminta pengguna untuk mencoba lagi. Setelah pengguna berhasil masuk, mereka dapat melihat dan berinteraksi dengan menu atau fitur aplikasi yang tersedia, yang sekarang diakses dengan keamanan dan verifikasi identitas yang telah dilakukan oleh Django. Proses ini menjamin keamanan dalam transaksi data dan memastikan bahwa hanya pengguna terotentikasi yang dapat mengakses fitur tertentu dalam aplikasi.
+
+## 5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.
+``Scaffold``: Widget ini digunakan sebagai kerangka dasar untuk layout halaman di Flutter. Ini menyediakan struktur dasar seperti appBar, body, dan lainnya.
+
+``AppBar``: Widget ini digunakan untuk menampilkan app bar di bagian atas layar. Di dalamnya, Kita menampilkan judul halaman yang diambil dari data item.
+
+``Form``: Widget ini digunakan untuk membuat formulir yang dapat diisi oleh pengguna. Ini membantu dalam validasi dan pengelolaan data formulir.
+
+``IconButton``: Widget ini digunakan untuk menampilkan tombol ikon di app bar. Dalam kasus ini, Kita menggunakan ikon panah kembali (Icons.arrow_back) yang, ketika ditekan, akan memicu fungsi untuk kembali ke halaman sebelumnya (Navigator.pop(context)).
+
+``Padding``: Widget ini digunakan untuk memberikan padding di sekitar konten lainnya, dalam hal ini di sekitar kolom yang menampilkan detail produk.
+
+``Column``: Widget ini digunakan untuk menata beberapa widget lainnya secara vertikal. Ini digunakan untuk menampilkan informasi detail produk.
+
+``Text``: Widget ini digunakan untuk menampilkan teks di layar. Dalam hal ini, digunakan untuk menampilkan berbagai atribut dari item, seperti nama, jumlah, harga, deskripsi, dan kategori
+
+``TextFormField``: Widget ini digunakan untuk menerima input teks dari pengguna. Setiap TextFormField dikonfigurasi dengan dekorasi, validator, dan fungsi onChanged.
+
+``ElevatedButton``: Widget ini digunakan untuk membuat tombol yang, ketika ditekan, akan menjalankan fungsi yang diberikan. Dalam kasus ini, tombol digunakan untuk mengirim data formulir ke server
+
+``Align``: Widget ini digunakan untuk mengatur posisi widget anaknya, dalam hal ini digunakan untuk menempatkan tombol di bagian bawah
+
+``SingleChildScrollView``: Widget ini memungkinkan pengguna untuk menggulir melalui konten yang mungkin tidak muat di layar
+
+``FutureBuilder``: Widget ini digunakan untuk membangun UI berdasarkan hasil dari Future. Dalam kasus ini, digunakan untuk membangun UI setelah data dari fetchItem() diperoleh
+
+``ListView.builder``: Widget ini digunakan untuk membuat daftar item yang dapat digulir. Ini membangun item daftar secara dinamis berdasarkan data yang diperoleh
+
+``InkWell``: Widget ini digunakan untuk menangani ketukan pada item daftar. Ketika item ditekan, ia akan menavigasi ke DetailProductPage dengan data item yang relevan
+
+``Container``: Widget ini digunakan untuk mengelompokkan dan memberikan margin, padding, dan tata letak lainnya pada item daftar
+
+``SizedBox``: Widget ini digunakan untuk memberikan jarak antar widget dalam Column.
+
+``ShopCard``: Widget ini adalah widget kustom, digunakan untuk menampilkan kartu untuk setiap item dalam grid. Setiap ShopCard mewakili sebuah item dalam aplikasi
+
+``LeftDrawer``: Widget adalah widget kustom, digunakan untuk menampilkan menu drawer di sisi kiri layar.
+
+``Drawer``: Widget ini digunakan untuk membuat menu drawer yang dapat ditarik dari sisi layar. Ini memberikan navigasi tambahan dalam aplikasi
+
+``ListView``: Widget ini digunakan untuk membuat daftar item yang dapat discroll. Dalam konteks ini, digunakan untuk menampilkan item-item dalam drawer.
+
+``ListTile``: Widget ini digunakan untuk membuat item yang dapat diklik di dalam ListView. Dalam hal ini, digunakan untuk membuat item navigasi di drawer
+
+``Icon``: Widget ini digunakan untuk menampilkan ikon di samping teks dalam ListTile
+
+``Material``: Widget ini digunakan sebagai dasar untuk menampilkan komponen UI yang mengikuti Material Design. Di sini, digunakan untuk memberikan warna latar belakang pada kartu
+
+
+## 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+
+   **--> Membuat halaman login pada proyek tugas Flutter.**
+
+   Pada checklist ini, langkah pertama yang saya lakukan adalah aplikasi baru bernama authentication di proyek Django saya. Kemudian, saya membuat fungsi login di views.py dan melakukan routing. Setelah itu, saya membuat file baru bernama login.dart di falam folder screens. File tersebut saya isi dengan kode berikut.
+   ```
+   import 'package:sparkle_sphere/screens/menu.dart';
+   import 'package:flutter/material.dart';
+   import 'package:pbp_django_auth/pbp_django_auth.dart';
+   import 'package:provider/provider.dart';
+   
+   void main() {
+       runApp(const LoginApp());
+   }
+   
+   class LoginApp extends StatelessWidget {
+   const LoginApp({super.key});
+   
+   @override
+   Widget build(BuildContext context) {
+       return MaterialApp(
+           title: 'Login',
+           theme: ThemeData(
+               primarySwatch: Colors.blue,
+       ),
+       home: const LoginPage(),
+       );
+       }
+   }
+   
+   class LoginPage extends StatefulWidget {
+       const LoginPage({super.key});
+   
+       @override
+       _LoginPageState createState() => _LoginPageState();
+   }
+   
+   class _LoginPageState extends State<LoginPage> {
+       final TextEditingController _usernameController = TextEditingController();
+       final TextEditingController _passwordController = TextEditingController();
+   
+       @override
+       Widget build(BuildContext context) {
+           final request = context.watch<CookieRequest>();
+           return Scaffold(
+               appBar: AppBar(
+                   title: const Text('Login'),
+               ),
+               body: Container(
+                   padding: const EdgeInsets.all(16.0),
+                   child: Column(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children: [
+                           TextField(
+                               controller: _usernameController,
+                               decoration: const InputDecoration(
+                                   labelText: 'Username',
+                               ),
+                           ),
+                           const SizedBox(height: 12.0),
+                           TextField(
+                               controller: _passwordController,
+                               decoration: const InputDecoration(
+                                   labelText: 'Password',
+                               ),
+                               obscureText: true,
+                           ),
+                           const SizedBox(height: 24.0),
+                           ElevatedButton(
+                               onPressed: () async {
+                                   String username = _usernameController.text;
+                                   String password = _passwordController.text;
+   
+                                   // Cek kredensial
+                                   // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
+                                   // Untuk menyambungkan Android emulator dengan Django pada localhost,
+                                   // gunakan URL http://10.0.2.2/
+                                   final response = await request.login("http://127.0.0.1:8000/auth/login/", {
+                                   'username': username,
+                                   'password': password,
+                                   });
+                       
+                                   if (request.loggedIn) {
+                                       String message = response['message'];
+                                       String uname = response['username'];
+                                       Navigator.pushReplacement(
+                                           context,
+                                           MaterialPageRoute(builder: (context) => MyHomePage()),
+                                       );
+                                       ScaffoldMessenger.of(context)
+                                           ..hideCurrentSnackBar()
+                                           ..showSnackBar(
+                                               SnackBar(content: Text("$message Selamat datang, $uname.")));
+                                       } else {
+                                       showDialog(
+                                           context: context,
+                                           builder: (context) => AlertDialog(
+                                               title: const Text('Login Gagal'),
+                                               content:
+                                                   Text(response['message']),
+                                               actions: [
+                                                   TextButton(
+                                                       child: const Text('OK'),
+                                                       onPressed: () {
+                                                           Navigator.pop(context);
+                                                       },
+                                                   ),
+                                               ],
+                                           ),
+                                       );
+                                   }
+                               },
+                               child: const Text('Login'),
+                           ),
+                       ],
+                   ),
+               ),
+           );
+       }
+   }
+   ```
+   Kemudan, saya mengubah kode pada main.dart menjadi seperti berikut.
+   ```
+   child: MaterialApp(
+    title: 'Flutter App',
+    theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        useMaterial3: true,
+    ),
+    home: LoginPage()),
+   ```
+
+   **--> Mengintegrasikan sistem autentikasi Django dengan proyek tugas Flutter.**
+
+   Langkah pertama yang saya lakukan adala menginsta package berikut.
+   ```
+   flutter pub add provider
+   flutter pub add pbp_django_auth
+   ```
+
+   Kemudian, saya mengubah kode pada main.dart untuk menyediakan cookierequest library.
+   ```
+   class MyApp extends StatelessWidget {
+    const MyApp({Key? key}) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+        return Provider(
+            create: (_) {
+                CookieRequest request = CookieRequest();
+                return request;
+            },
+            child: MaterialApp(
+                title: 'Flutter App',
+                theme: ThemeData(
+                    colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+                    useMaterial3: true,
+                ),
+                home: LoginPage()),
+               );
+       }
+   }
+   ```
+
+   **--> Membuat model kustom sesuai dengan proyek aplikasi Django.**
+
+   Pada checklist ini, saya copy data JSON dan paste di Quicktype. Kemudian, saya membuat folder baru di dalam lib dengan nama models. Lalu, membuat file baru bernama ```product.dart``` dan paste kode yang sudah dicopy sebelumnya di file tersebut.
+
+   **--> Membuat halaman yang berisi daftar semua item yang terdapat pada endpoint JSON di Django yang telah kamu deploy.**
+
+   Pada checklist ini, saya membuat file baru bernama ```list_product.dart``` di dalam folder screens. Kemudian, saya mengisi file tersebut dengan kode berikut.
+   ```
+   class _ProductPageState extends State<ProductPage> {
+     Future<List<Product>> fetchProduct() async {
+       var url = Uri.parse('http://127.0.0.1:8000/json/');
+       var response = await http.get(
+         url,
+         headers: {"Content-Type": "application/json"},
+       );
+   
+       // melakukan decode response menjadi bentuk json
+       var data = jsonDecode(utf8.decode(response.bodyBytes));
+   
+       // melakukan konversi data json menjadi object Product
+       List<Product> list_product = [];
+       for (var d in data) {
+         if (d != null) {
+           list_product.add(Product.fromJson(d));
+         }
+       }
+       return list_product;
+     }
+   ```
+   Class tersebut berguna untuk memproses daftar produk dari JSON menjadi object Product.
+
+   ```
+     Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Product'),
+        ),
+        drawer: const LeftDrawer(),
+        body: FutureBuilder(
+            future: fetchProduct(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                if (!snapshot.hasData) {
+                  return const Column(
+                    children: [
+                      Text(
+                        "Tidak ada data produk.",
+                        style:
+                            TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                      ),
+                      SizedBox(height: 8),
+                    ],
+                  );
+                } else {
+                  return ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (_, index) {
+                      // Mengambil data produk saat ini
+                      var product = snapshot.data![index];
+
+                      return InkWell(
+                        onTap: () {
+                          // Navigasi ke halaman detail produk dengan data produk
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ProductDetailPage(product: product),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                product.fields.name,
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text("${product.fields.amount}"),
+                              const SizedBox(height: 10),
+                              Text("${product.fields.description}"),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                }
+              }
+            }));
+        }
+      }
+   ```
+   Kode tersebut bertujuan untuk menampilkan name, amount, dan description dari masing-masing item yang ada dalam daftar item.
+
+   **--> Membuat halaman detail untuk setiap item yang terdapat pada halaman daftar Item.**
+
+   Pada checklist ini, saya membuat file baru bernama ```product_detail.dart``` di dalam folder screens. Kemudian, saya mengisi file tersebut dengan kode berikut
+
+   ```
+   
+   import 'package:flutter/material.dart';
+   import 'package:sparkle_sphere/models/product.dart';
+   
+   class ProductDetailPage extends StatelessWidget {
+     final Product product;
+   
+     const ProductDetailPage({Key? key, required this.product}) : super(key: key);
+   
+     @override
+     Widget build(BuildContext context) {
+       return Scaffold(
+         appBar: AppBar(
+           title: Text(product.fields.name),
+           actions: [
+             IconButton(
+               icon: Icon(Icons.arrow_back),
+               onPressed: () => Navigator.pop(context),
+             ),
+           ],
+         ),
+         body: Padding(
+           padding: EdgeInsets.all(16),
+           child: Column(
+             crossAxisAlignment: CrossAxisAlignment.start,
+             children: <Widget>[
+               Text("Name: ${product.fields.name}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+               SizedBox(height: 10),
+               Text("Amount: ${product.fields.amount}"),
+               SizedBox(height: 10),
+               Text("Description: ${product.fields.description}"),
+             ],
+           ),
+         ),
+       );
+     }
+   }
+   ```
+
 </details>
